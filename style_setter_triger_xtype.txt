@@ -1,0 +1,113 @@
+﻿<Window x:Name="Window1" x:Class="WpfApplication_StyleSetter.WindowResources"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WindowResources" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Tahoma"></Setter>            
+        </Style>
+
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="FontFamily" Value="Arial Black"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Foreground" Value="YellowGreen"></Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </StackPanel.Resources>
+            <TextBox ></TextBox>
+            <Button x:Name="bt01">Example01</Button>
+            <Button x:Name="bt02">Example02</Button>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <TextBox > Text02</TextBox>
+            <Button x:Name="bt03">Example01</Button>
+            <Button x:Name="bt04">Example02</Button>
+        </StackPanel>
+        <ItemsControl Height="150" ItemsSource="{Binding ElementName=Window1, Path=DataContext}" Grid.Row="2" ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                        <TextBlock Text="{Binding Path=Price}"></TextBlock>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>
+
+
+
+===========================================
+<!--
+<Window x:Class="WpfApplication_StyleSetter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="NormalStyle">
+            <Setter Property="Control.FontSize" Value="20"></Setter>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Control.Margin" Value="10"></Setter>
+            <Setter Property="Control.Foreground" Value="Black"></Setter>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="true">
+                    <Setter Property="Control.FontStyle" Value="Italic"></Setter>
+                    <Setter Property="Control.Foreground" Value="Red"></Setter>
+                    <Setter Property="Control.Background" Value="Yellow"></Setter>
+                </Trigger>
+                <Trigger Property="Button.IsPressed" Value="true">
+                    <Setter Property="Control.Foreground" Value="Green"></Setter>
+                    <Setter Property="Control.Background" Value="Blue"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Button Width="214" Style="{StaticResource NormalStyle}" Margin="158,134,131,132" Content="WPF Trigger Sample"></Button>
+    </Grid>
+</Window>  
+-->
+
+<Window x:Class="WpfApplication_StyleSetter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DataTriggerSample" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Control.FontSize" Value="20"></Setter>
+            <Setter Property="Control.HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="Control.Margin" Value="10"></Setter>
+            <Setter Property="Control.Foreground" Value="Black"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ElementName=textBox1, Path=Text.Length}" Value="2">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Button Content="WPF Data Trigger Style" Height="50" HorizontalAlignment="Left" Margin="12,84,0,0" Name="button1" VerticalAlignment="Top" Width="243" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="71,36,0,0" Name="textBox1" VerticalAlignment="Top" Width="120" />
+    </Grid>
+</Window>

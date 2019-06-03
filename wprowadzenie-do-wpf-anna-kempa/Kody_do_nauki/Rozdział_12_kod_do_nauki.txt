@@ -1,0 +1,490 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 12. Walidacja danych
+***************************************************************************
+
+===========================================================================
+12.1 Wbudowane mechanizmy walidacji
+===========================================================================
+
+Wersja 1 (brak komunikatu o b³êdzie)
+--------------------------------------------------------------------------
+
+Kod XAML:
+
+<Window.DataContext>
+    <local:Towar Nazwa="o³ówek" Cena="21"/>
+</Window.DataContext>
+<WrapPanel>
+    <Label Content="Nazwa:"/>
+    <TextBox Margin="5" Text="{Binding Nazwa}" Width="100"/>
+    <Label Content="Cena:"/>
+    <TextBox Margin="5" Text="{Binding Cena, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F2}}" Width="100"/>
+</WrapPanel>
+
+Kod C#:
+
+class Towar
+{
+    public string Nazwa { get; set; }
+    public double Cena { get; set; }
+}
+
+Wersja 2 (Komunikat o b³êdzie jako ToolTip)
+--------------------------------------------------------------------------
+<WrapPanel.Resources>
+    <Style TargetType="TextBox">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="true">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+</WrapPanel.Resources>
+
+Wersja 3 (Definicja szablonu dla Validation.ErrorTemplate)
+--------------------------------------------------------------------------
+<TextBox Text="{Binding Cena, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F2}}" Margin="5" Width="100">
+    <Validation.ErrorTemplate>
+        <ControlTemplate>
+            <StackPanel>
+                <AdornedElementPlaceholder/>
+                <TextBlock Text="{Binding CurrentItem.ErrorContent}" Foreground="Red"/>
+            </StackPanel>
+        </ControlTemplate>
+    </Validation.ErrorTemplate>
+</TextBox>
+
+Wersja 4 (Implementacja interfejsu IDataErrorInfo)
+--------------------------------------------------------------------------
+
+Kod C#:
+// W nowym projekcie stwórz plik dla klasy Towar.cs i dodaj dyrektywê using: 
+
+using System.ComponentModel;
+
+// Nastêpnie zdefiniuj klasê Towar:
+
+class Towar : IDataErrorInfo
+{
+    public string Nazwa { get; set; }
+    public double Cena { get; set; }
+
+    public string Error   // „Pusta” implementacja w³aœciwoœci Error
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string this[string nazwaWlasciwosciTowaru]     // Implementacja indeksatora
+    {
+        get
+        {
+            string komunikat = String.Empty;
+            switch (nazwaWlasciwosciTowaru)
+            {
+                case "Nazwa":
+                    if (string.IsNullOrEmpty(Nazwa)) 
+                        komunikat = "Nazwa musi byæ wpisana!";
+                    else if (Nazwa.Length < 3) 
+                        komunikat = "Nazwa musi mieæ minimum 3 znaki!";
+                    break;
+                case "Cena":
+                    if ((Cena < 0.1) || (Cena > 1000)) 
+                        komunikat = "Cena musi byæ z zakresu od 0,10 do 1000";
+                    break;
+            };
+            return komunikat;
+        }
+    }
+}
+
+Kod XAML:
+
+<Window.DataContext>
+    <local:Towar Nazwa="o³ówek" Cena="21"/>
+</Window.DataContext>
+<Window.Resources>
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding CurrentItem.ErrorContent}" Foreground="Red"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Window.Resources>
+<WrapPanel>
+    <Label Content="Nazwa:"/>
+    <TextBox Text="{Binding Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+    <Label Content="Cena:"/>
+    <TextBox Text="{Binding Cena, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F2}, ValidatesOnDataErrors=True}"/>
+</WrapPanel>
+
+
+===========================================================================
+12.2 Definiowanie w³asnych regu³ walidacji
+===========================================================================
+
+Koad XAML:
+
+<WrapPanel>
+    <Label Content="Nazwa:"/>
+    <TextBox Text="{Binding Nazwa}"/>
+    <Label Content="Cena:"/>
+    <TextBox>
+        <TextBox.Text>
+            <Binding Path="Cena" UpdateSourceTrigger="PropertyChanged" StringFormat="{}{0:F2}">
+                <Binding.ValidationRules>
+                    <local:WalidatorLiczb Min="0.1" Max="1000"/>
+                </Binding.ValidationRules>
+            </Binding>
+        </TextBox.Text>
+    </TextBox>
+</WrapPanel>
+
+Kod C#:
+
+// Klasa Towar:
+
+class Towar
+{
+    public string Nazwa { get; set; }
+    public double Cena { get; set; }
+}
+
+// Utwórz nowy plik dla klasy WalidatorLiczb i dodaj w nim dyrektywê using:
+using System.Windows.Controls;
+
+// Nastêpnie wpisz kod klasy WalidatorLiczb:
+
+class WalidatorLiczb: ValidationRule
+{
+    public double Min { get; set; }
+    public double Max { get; set; }
+
+    public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+    {
+        double sprawdzanaLiczba = 0;
+        try
+        {
+            if (value.ToString().Length > 0)
+                sprawdzanaLiczba = Double.Parse(value.ToString());
+        }
+        catch (FormatException e)
+        {
+            return new ValidationResult(false, "Niedozwolone znaki - " + e.Message);
+        }
+
+        if (sprawdzanaLiczba < Min || sprawdzanaLiczba > Max)
+        {
+            return new ValidationResult(false, "WprowadŸ liczbê z zakresu: " + Min + " - " + Max);
+        }
+        else
+        {
+            return new ValidationResult(true, null);
+        }
+    }
+}
+
+===========================================================================
+12.3 Wyra¿enia regularne
+===========================================================================
+
+Kod C#:
+
+// W nowym projekcie stwórz plik dla definicji klasy Osoba.cs. Dodaj tam dyrektywy using: 
+using System.ComponentModel;
+using System.Text.RegularExpressions;
+
+// Klasa Osoba:
+
+class Osoba: IDataErrorInfo
+{
+    public string Nazwisko { get; set; }
+    public string Imiona { get; set; }
+    public string Pesel { get; set; }
+    public string KodPocztowy { get; set; }
+
+    public string Error
+    {
+        get
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public string this[string nazwaWlasciwosciOsoby]
+    {
+        get
+        {
+            string komunikat = String.Empty;
+            switch (nazwaWlasciwosciOsoby)
+            {
+                case "Nazwisko":
+                    if (string.IsNullOrEmpty(Nazwisko))
+                        komunikat = "Nazwisko musi byæ wpisane!";
+                    else if (!Regex.IsMatch(Nazwisko, "^[A-Z][a-z]+$"))
+                        komunikat = "Nazwisko z du¿ej litery i minimum 2 znaki!";
+                    break;
+                case "Imiona":
+                    if (string.IsNullOrEmpty(Imiona))
+                        komunikat = "Nale¿y wpisaæ imiê lub imiona!";
+                    else if (!Regex.IsMatch(Imiona, @"^[A-Z][a-z]+(\s[A-Z][a-z]+)*$"))
+                        komunikat = "Imiona z du¿ej litery i minimum 2 znaki";
+                    break;
+                case "Pesel":
+                    if (string.IsNullOrEmpty(Pesel))
+                        komunikat = "Pesel musi byæ wpisany!";
+                    else if (!Regex.IsMatch(Pesel, @"^\d{11}$"))
+                        komunikat = "Numer PESEL musi mieæ 11 znaków";
+                    break;
+                case "KodPocztowy":
+                    if (string.IsNullOrEmpty(KodPocztowy))
+                        komunikat = "Kod pocztowy musi byæ wpisany!";
+                    else if (!Regex.IsMatch(KodPocztowy, @"^\d{2}-\d{3}$"))
+                        komunikat = "Kod pocztowy ma mieæ format 99-999";
+                    break;            
+            };
+            return komunikat;
+        }
+    }
+}
+
+Kod XAML:
+
+<Window.DataContext>
+    <local:Osoba Nazwisko="Kowalski" Imiona ="Jan Andrzej" Pesel ="01234567890" KodPocztowy="40-000"/>
+</Window.DataContext>
+<Window.Resources>
+    <Style TargetType="{x:Type TextBox}">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="120"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <WrapPanel>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Text="{Binding CurrentItem.ErrorContent}" Foreground="Red" Margin="5,0"/>
+                    </WrapPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</Window.Resources>
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <Label Content="Nazwisko:" Grid.Row="0" Grid.Column="0"/>
+    <TextBox Text="{Binding Nazwisko, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Row="0" Grid.Column="1"/>
+    <Label Content="Imiona:" Grid.Row="1" Grid.Column="0"/>
+    <TextBox Text="{Binding Imiona, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Row="1" Grid.Column="1"/>
+    <Label Content="Pesel:" Grid.Row="2" Grid.Column="0"/>
+    <TextBox Text="{Binding Pesel, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Row="2" Grid.Column="1"/>
+    <Label Content="Kod pocztowy:" Grid.Row="3" Grid.Column="0"/>
+    <TextBox Text="{Binding KodPocztowy, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Grid.Row="3" Grid.Column="2"/>
+</Grid>
+
+===========================================================================
+12.5 Wskazówki do zadañ
+===========================================================================
+
+Wskazówki do zadania 12.1
+--------------------------------------------------------------------------
+
+if (!Regex.IsMatch(Nazwisko, @"^[A-Z][a-z]+((\s|-)[A-Z][a-z]+){0,2}$")) // Komunikat...
+lub
+if (!Regex.IsMatch(Nazwisko, @"^\p{Lu}\p{Ll}+((\s|-)\p{Lu}\p{Ll}+){0,2}$")) // Komunikat...
+
+Wskazówki do zadania 12.2
+--------------------------------------------------------------------------
+
+// Klasa Produkt:
+class Produkt : IDataErrorInfo
+{
+    public string Symbol { get; set; }
+    public string Nazwa { get; set; }
+    public int LiczbaSztuk { get; set; }
+    public string Magazyn { get; set; }
+}
+
+// Stwórz kolekcjê dla magazynów:
+class Magazyny : ObservableCollection<string>  // Dodaj using System.Collections.ObjectModel;
+{
+    public Magazyny()
+    {
+        Add("Katowice 1");
+        Add("Katowice 2");
+        Add("Gliwice 1");
+    }
+}
+
+// Kolekcja produktów:
+class KolekcjaProduktow : ObservableCollection<Produkt> // Dodaj using System.Collections.ObjectModel;
+{
+    public KolekcjaProduktow()
+    {
+        Add(new Produkt
+        {
+            Symbol= "O1-11",
+            Nazwa = "o³ówek",
+            LiczbaSztuk = 8,
+            Magazyn = "Katowice 1"
+        });
+        Add(new Produkt
+        {
+            Symbol = "PW-20",
+            Nazwa = "pióro wieczne",
+            LiczbaSztuk = 75,
+            Magazyn = "Katowice 2"
+        });
+        Add(new Produkt
+        {
+            Symbol = "DZ-10",
+            Nazwa = "d³ugopis ¿elowy",
+            LiczbaSztuk = 1121,
+            Magazyn = "Katowice 1"
+        });
+        Add(new Produkt
+        {
+            Symbol = "DZ-12",
+            Nazwa = "d³ugopis kulkowy",
+            LiczbaSztuk = 280,
+            Magazyn = "Katowice 2"
+        });
+    }
+}
+
+W kodzie XAML dodaj zasób z utworzonymi kolekcjami, na przyk³ad:
+
+<Window.Resources>
+     <local:KolekcjaProduktow x:Key="wykazProduktow"/>
+     <local:Magazyny x:Key="listaMagazynow"/>
+</Window.Resources>
+
+Kod dla DataGrid nale¿y nieznacznie zmieniæ wzglêdem programu z podrozdzia³u 7.3, tak aby po zmianach mia³ postaæ:
+
+<DataGrid AutoGenerateColumns="False" AlternatingRowBackground="LightBlue" GridLinesVisibility="None" ItemsSource="{Binding Source={StaticResource wykazProduktow}}">
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="Symbol" Binding="{Binding Symbol}"/>
+        <DataGridTextColumn Header="Nazwa" Binding="{Binding Nazwa}" />
+        <DataGridTextColumn Header="Liczba sztuk" Binding="{Binding LiczbaSztuk}">
+            <DataGridTextColumn.ElementStyle>
+                 <Style TargetType="{x:Type TextBlock}">
+                      <Setter Property="HorizontalAlignment" Value="Right" />
+                  </Style>
+             </DataGridTextColumn.ElementStyle>
+        </DataGridTextColumn>
+        <DataGridComboBoxColumn x:Name="nazwaMagazynu" ItemsSource="{Binding Source={StaticResource listaMagazynow}}" Header="Magazyn" SelectedItemBinding="{Binding Magazyn}"/>
+    </DataGrid.Columns>
+</DataGrid>
+
+// Implementacja interfejsu IDataErrorInfo w klasie Produkt (najwa¿niejsza jej czêœæ, czyli implementacja indeksatora):
+
+public string this[string nazwaWlasciwosciProduktu]
+{
+    get
+    {
+        string komunikat = String.Empty;
+        switch (nazwaWlasciwosciProduktu)
+        {
+            case "Symbol":
+                if (string.IsNullOrEmpty(Symbol))
+                    komunikat = "Symbol musi byæ wpisany!";
+                else if (!Regex.IsMatch(Symbol, @"^[A-Z][A-Z0-9]-[0-9]{2}$"))
+                    komunikat = "Symbol ma mieæ format XX-99 lub X9-99 (X-litera, 9-cyfra)";
+                break;
+            case "LiczbaSztuk":
+                if (LiczbaSztuk < 0 || LiczbaSztuk > 10000)
+                    komunikat = "Liczba sztuk ma byæ z zakresu <0,10000>";
+                break;
+        };
+        return komunikat;
+    }
+}
+
+W kodzie XAML dodaj do zasobów styl pokazuj¹cy "dymek" z opisem b³êdu:
+
+<Style x:Key="stylTextBlock" TargetType="{x:Type TextBlock}">
+    <Style.Triggers>
+        <Trigger Property="Validation.HasError" Value="true">
+            <Setter Property="ToolTip" 
+                    Value="{Binding RelativeSource={x:Static RelativeSource.Self}, 
+                            Path=(Validation.Errors)[0].ErrorContent}" />
+        </Trigger>
+     </Style.Triggers>
+</Style>
+
+Definicja dla kolumny z liczb¹ sztuk:
+
+<DataGridTextColumn Header="Liczba sztuk" Binding="{Binding LiczbaSztuk, ValidatesOnDataErrors=True}">
+    <DataGridTextColumn.ElementStyle>
+        <Style BasedOn="{StaticResource stylTextBlock}" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Right" />
+        </Style>
+    </DataGridTextColumn.ElementStyle>
+</DataGridTextColumn>
+
+
+Wskazówki do zadania 12.3
+--------------------------------------------------------------------------
+
+// W klasie Produkt zamieñ "pust¹" implementacjê w³aœciwoœci Error na nastêpuj¹cy kod:
+
+public string Error
+{
+    get
+    {
+        string komunikat = String.Empty;
+        if (Symbol.Substring(0,1)=="A" && LiczbaSztuk < 10)
+        {
+            komunikat = "Wymagana liczba produktów o symbolu A to min.10";
+        }
+        return komunikat;
+    }
+}
+
+Nale¿y zdefiniowaæ styl dla elementu DataGridRow, na przyk³ad:
+
+<Style TargetType="{x:Type DataGridRow}">
+    <Style.Triggers>
+         <Trigger Property="Validation.HasError" Value="true">
+             <Setter Property="BorderThickness" Value="1"/>
+             <Setter Property="BorderBrush" Value="Red"/>
+             <Setter Property="ToolTip"
+                 Value="{Binding RelativeSource={x:Static RelativeSource.Self},
+                 Path=(Validation.Errors)[0].ErrorContent}"/>
+        </Trigger>
+    </Style.Triggers>
+</Style>
+
+Na pocz¹tku definicji DataGrid wpisz:
+
+<DataGrid.RowValidationRules>
+    <DataErrorValidationRule/>
+</DataGrid.RowValidationRules>
+
+
+
+
+
+
+

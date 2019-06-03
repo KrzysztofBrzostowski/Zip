@@ -1,0 +1,253 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 13. Wprowadzenie do wzorca projektowego MVVM
+***************************************************************************
+
+===========================================================================
+13.2. Budujemy widok dla przyk³adowej aplikacji 
+===========================================================================
+
+<Window.DataContext>
+    <local:StudentViewModel/>
+</Window.DataContext>
+<StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Imiê:" Grid.Row="0" Grid.Column="0"/>
+        <TextBox Text="{Binding Kursant.Imie}" Grid.Row="0" Grid.Column="1" 
+                 Width = "120" Margin = "5"/>
+        <Label Content="Nazwisko:" Grid.Row="1" Grid.Column="0"/>
+        <TextBox Text="{Binding Kursant.Nazwisko}" Grid.Row="1" Grid.Column="1" 
+                 Width = "120" Margin = "5"/>
+        <Label Content="Rok rozpoczêcia studiów:" Grid.Row="2" Grid.Column="0"/>
+        <TextBox Text="{Binding Kursant.RokPrzyjeciaNaStudia, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" Width = "120" Margin = "5"/>
+        <Label Content="Ile lat studiuje:" Grid.Row="3" Grid.Column="0"/>
+        <TextBlock Text="{Binding Kursant.CzasStudiowania, Mode = OneWay}"
+                   Grid.Row="3" Grid.Column="2" Width = "120" Margin = "5"/>
+    </Grid>
+    <Button Content="Wyczyœæ dane" Height="20" Width="100" VerticalAlignment="Bottom" 
+            HorizontalAlignment="Right" Margin="20" Command="{Binding Wyczysc}"/>
+</StackPanel>
+
+===========================================================================
+13.3 Implementacja modelu
+===========================================================================
+// Stwórz w projekcie plik Student.cs i dodaj przestrzeñ nazw:
+using System.ComponentModel;
+
+// Kod klasy Student:
+
+public class Student : INotifyPropertyChanged
+{
+    private string imie;
+    private string nazwisko;
+    private int rokPrzyjeciaNaStudia;
+
+    public string Imie
+    {
+        get
+        {
+            return imie;
+        }
+        set
+        {
+            if (imie != value)
+            {
+                imie = value;
+                OnPropertyChanged("Imie");
+            }
+        }
+    }
+
+    public string Nazwisko
+    {
+        get
+        {
+            return nazwisko;
+        }
+        set
+        {
+            if (nazwisko != value)
+            {
+                nazwisko = value;
+                OnPropertyChanged("Nazwisko");
+            }
+        }
+    }
+
+    public int RokPrzyjeciaNaStudia
+    {
+        get
+        {
+            return rokPrzyjeciaNaStudia;
+        }
+        set
+        {
+            if (rokPrzyjeciaNaStudia != value)
+            {
+                rokPrzyjeciaNaStudia = value;
+                OnPropertyChanged("RokPrzyjeciaNaStudia");
+                OnPropertyChanged("CzasStudiowania");
+            }
+        }
+    }
+
+    public string CzasStudiowania
+    {
+        get
+        {
+            return (DateTime.Now.Year - RokPrzyjeciaNaStudia).ToString();
+        }
+    }
+
+    // Implementacja interfejsu INotifyPropertyChanged
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    private void OnPropertyChanged(string property)
+    {
+        if (PropertyChanged != null)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+    }
+}
+
+===========================================================================
+13.4 Implementacja modelu widoku
+===========================================================================
+
+// Utwórz w projekcie nowy plik z klas¹ StudentViewModel. Dodaj dyrektywy using dla przestrzeni nazw:
+using System.ComponentModel;   
+using System.Windows;   
+
+// Nastêpnie wpisz kod klasy StudentViewModel:
+
+class StudentViewModel: INotifyPropertyChanged
+{
+    private Student _kursant;
+    public Student Kursant
+    {
+        get { return _kursant; }
+        set
+        {
+            _kursant = value;
+            OnPropertyChanged("Kursant");
+        }
+    }
+    public MyCommand Wyczysc { get; set; }
+
+    public StudentViewModel()
+    {
+        Kursant = new Student { Imie = "Jan", Nazwisko = "Kowalski", RokPrzyjeciaNaStudia = 2014 };
+        Wyczysc = new MyCommand(WyczyscDane);
+    }
+
+    private void WyczyscDane()
+    {
+        if (MessageBox.Show("Czy wyczyœciæ dane studenta?", "Pytanie", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+        {
+            Kursant.Imie = String.Empty;
+            Kursant.Nazwisko = String.Empty;
+            Kursant.RokPrzyjeciaNaStudia = DateTime.Now.Year;
+        }
+    }
+
+    // Implementacja interfejsu INotifyPropertyChanged
+    public event PropertyChangedEventHandler PropertyChanged;
+        
+    private void OnPropertyChanged(string property)
+    {
+        if (PropertyChanged != null)
+        {
+            PropertyChanged(this, new PropertyChangedEventArgs(property));
+        }
+    }
+}
+--------------------------------------------------------------------------
+
+// Stwórz osobny plik MyCommand.cs i dodaj przestrzeñ nazw:
+using System.Windows.Input;
+
+// Nastêpnie wpisz kod klasy MyCommand:
+
+public class MyCommand : ICommand
+{
+    Action _execute;
+
+    public MyCommand(Action executeMethod)
+    {
+        _execute = executeMethod;
+    }
+    public void Execute(object parameter)
+    {
+        if (_execute != null)
+        {
+            _execute();
+        }
+    }
+    public bool CanExecute(object parameter)
+    {
+        return true;
+    }
+    public event EventHandler CanExecuteChanged;
+}
+
+===========================================================================
+13.5 Przed dalsz¹ nauk¹ MVVM
+===========================================================================
+
+// Przyk³ad klasy impelementuj¹cej interfejs ICommand prezentowany m.in. w podrêczniku 
+// Matulewski J., MVVM i XAML w Visual Studio 2015, Helion, Gliwice 2016 (str. 67 – 68)
+
+using System;
+using System.Diagnostics;
+using System.Windows.Input;
+
+public class RelayCommand : ICommand
+{
+    readonly Action<object> _execute;
+    readonly Predicate<object> _canExecute;
+    public RelayCommand(Action<object> execute, Predicate<object> canExecute = null)
+    {
+        if (execute == null) throw new ArgumentNullException("execute");
+           _execute = execute;
+           _canExecute = canExecute;
+    }
+    [DebuggerStepThrough]
+    public bool CanExecute(object parameter)
+    {
+        return _canExecute == null ? true : _canExecute(parameter);
+    }
+    public event EventHandler CanExecuteChanged
+    {
+        Add
+        {
+            if (_canExecute != null) CommandManager.RequerySuggested += value;
+        }
+        remove
+        {
+            if (_canExecute != null) CommandManager.RequerySuggested -= value;
+        }
+    }
+    public void Execute(object parameter)
+    {
+        _execute(parameter);
+    }
+}
+
+
+
+
+
+

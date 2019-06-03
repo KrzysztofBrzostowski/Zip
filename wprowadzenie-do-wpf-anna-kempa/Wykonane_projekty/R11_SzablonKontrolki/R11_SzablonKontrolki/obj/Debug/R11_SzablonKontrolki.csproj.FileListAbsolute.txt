@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\bin\Debug\R11_SzablonKontrolki.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\bin\Debug\R11_SzablonKontrolki.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\bin\Debug\R11_SzablonKontrolki.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_SzablonKontrolki\R11_SzablonKontrolki\obj\Debug\R11_SzablonKontrolki.pdb

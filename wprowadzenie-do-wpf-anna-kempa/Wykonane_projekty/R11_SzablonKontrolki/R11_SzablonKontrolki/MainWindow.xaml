@@ -1,0 +1,27 @@
+﻿<Window x:Class="R11_SzablonKontrolki.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:R11_SzablonKontrolki"
+        mc:Ignorable="d"
+        Title="Szablon przycisku" Height="150" Width="350">
+    <Window.Resources>
+        <ControlTemplate x:Key="szablonPrzycisku" TargetType="Button">
+            <Grid>
+                <Ellipse Fill="Lavender" Width="100" Height="50" Stroke="Black"/>
+                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Button Content="Zatwierdź" FontSize="16" FontWeight="Bold" Template="{StaticResource szablonPrzycisku}" Click="Button_Click"/>
+    </Grid>
+
+
+
+
+
+
+
+</Window>

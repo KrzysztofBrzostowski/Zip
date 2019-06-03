@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\bin\Debug\R4_WrapPanel.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\bin\Debug\R4_WrapPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\bin\Debug\R4_WrapPanel.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_WrapPanel\R4_WrapPanel\obj\Debug\R4_WrapPanel.pdb

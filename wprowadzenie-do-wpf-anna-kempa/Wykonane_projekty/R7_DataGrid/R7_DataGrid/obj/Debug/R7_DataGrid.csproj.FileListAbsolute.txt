@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\bin\Debug\R7_DataGrid.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\bin\Debug\R7_DataGrid.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\bin\Debug\R7_DataGrid.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R7_DataGrid\R7_DataGrid\obj\Debug\R7_DataGrid.pdb

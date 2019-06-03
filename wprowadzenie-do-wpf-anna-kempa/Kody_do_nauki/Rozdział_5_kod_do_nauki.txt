@@ -1,0 +1,130 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 5. Wi¹zanie danych - aplikacja Produkt
+***************************************************************************
+
+===========================================================================
+5.1 Testowanie wi¹zania danych
+===========================================================================
+
+    <StackPanel>
+        <Slider x:Name="rozmiarTekstu" Minimum="10" Value="15" Maximum="45"/>
+        <TextBlock FontSize="{Binding Path=Value, ElementName=rozmiarTekstu}">
+             Testujemy wi¹zanie danych
+        </TextBlock>
+    </StackPanel>
+
+===========================================================================
+5.2 Kod XAML
+===========================================================================
+
+    <Grid x:Name="gridProdukt">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Symbol:" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Symbol}"/>
+        <Label Content="Nazwa:" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Nazwa}"/>
+        <Label Content="Liczba sztuk:" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding LiczbaSztuk}"/>
+        <Label Content="Magazyn:" Grid.Row="3" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Magazyn}"/>
+        <Button x:Name="btnPotwierdz" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin ="5" MinWidth="120" HorizontalAlignment="Center" Content="PotwierdŸ" Click="btnPotwierdz_Click"/>
+    </Grid>
+    
+===========================================================================
+5.3 Definicja klasy Produkt i code-behind
+===========================================================================
+
+// Klasa Produkt
+    class Produkt 
+    {
+        public string Symbol { get; set; }
+        public string Nazwa { get; set; }
+        public int LiczbaSztuk { get; set; }
+        public string Magazyn { get; set; }
+
+        public Produkt(string sym, string naz, int lszt, string mag)
+        {
+            Symbol = sym;
+            Nazwa = naz;
+            LiczbaSztuk = lszt;
+            Magazyn = mag;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0} {1} {2} {3}", Symbol, Nazwa, LiczbaSztuk, Magazyn);
+        }
+    }
+
+// Klasa MainWindow
+    public partial class MainWindow : Window
+    {
+        private Produkt p1 = null;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            WykonajWiazanie();
+        }
+
+        private void WykonajWiazanie()
+        {
+            p1 = new Produkt("DZ-10", "d³ugopis ¿elowy", 132, "Katowice 1");
+            gridProdukt.DataContext = p1;
+        }
+
+        private void btnPotwierdz_Click(object sender, RoutedEventArgs e)
+        {
+            string tekst = String.Format("{0}{1}{2}", "Wprowadzono dane:", 
+                Environment.NewLine, p1.ToString());
+            MessageBox.Show(tekst);
+        }
+    }
+
+===========================================================================
+5.5 Wskazówki do zadañ
+============================================================================
+
+Wskazówki do zadania 5.1
+---------------------------------------------------------------------------
+        <TextBlock Grid.Row ="3" Grid.Column ="0" Grid.ColumnSpan="2" Margin="5" 
+             FontSize="{Binding Path=Value, ElementName=rozmiarTekstu}" 
+             Text="{Binding Path=Text, ElementName=txtTekst}"
+             Foreground="{Binding Path=SelectedItem.Content,ElementName=cmbKolor}"/>
+
+Wskazówki do zadania 5.2
+---------------------------------------------------------------------------
+         Text="{Binding Path=Text, ElementName=txtTekst, UpdateSourceTrigger=PropertyChanged}"
+
+Wskazówki do zadania 5.3
+---------------------------------------------------------------------------
+        <!-- Pierwszy przyk³ad -->
+        <TextBlock Grid.Row ="3" Grid.Column ="1" HorizontalAlignment="Left" Margin="5,11,0,5"
+            Text="{Binding StringFormat={}{0} znaków (znaki/znak), 
+            Path=Text.Length, ElementName=txtTekst}"/>
+
+        <!-- Drugi przyk³ad -->
+        <TextBlock Grid.Row ="3" Grid.Column ="1" HorizontalAlignment="Left" Margin="5,11,0,5">
+            <TextBlock.Text>
+                <Binding Path="Text.Length" ElementName="txtTekst">
+                    <Binding.StringFormat>
+                        {0} znaków (znaki/znak)
+                    </Binding.StringFormat>
+                </Binding>
+            </TextBlock.Text>
+        </TextBlock>
+
+

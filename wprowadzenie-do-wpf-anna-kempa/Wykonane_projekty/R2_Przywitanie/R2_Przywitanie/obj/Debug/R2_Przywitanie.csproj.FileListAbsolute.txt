@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\bin\Debug\R2_Przywitanie.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\bin\Debug\R2_Przywitanie.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\bin\Debug\R2_Przywitanie.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R2_Przywitanie\R2_Przywitanie\obj\Debug\R2_Przywitanie.pdb

@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\bin\Debug\R10_Style2.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\bin\Debug\R10_Style2.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\bin\Debug\R10_Style2.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Style2\R10_Style2\obj\Debug\R10_Style2.pdb

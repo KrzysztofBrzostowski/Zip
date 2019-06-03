@@ -1,0 +1,13 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\bin\Debug\R11_VisualTree.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\bin\Debug\R11_VisualTree.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\bin\Debug\R11_VisualTree.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R11_VisualTree\R11_VisualTree\obj\Debug\R11_VisualTree.csprojResolveAssemblyReference.cache

@@ -1,0 +1,125 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 4. Panele
+***************************************************************************
+
+===========================================================================
+4.1 Canvas
+===========================================================================
+
+    <Canvas>
+        <Button Content="Domyœlny"/>
+        <Button Content="Top 30" Canvas.Top="30"/>
+        <Button Content="Right 10" Canvas.Right="10"/>
+        <Button Content="Top Left" Canvas.Top="30" Canvas.Left="50"/>
+        <Button Content="Bottom Right" Canvas.Bottom="10" Canvas.Right="10"/>
+    </Canvas>
+
+===========================================================================
+4.2 StackPanel
+===========================================================================
+
+    <!-- Pierwszy przyk³ad -->
+    <StackPanel>
+        <Button Content="Przycisk1" Margin="10" />
+        <Button Content="Przycisk2" Margin="10" />
+        <Button Content="Przycisk3" Margin="10" />
+        <Button Content="Przycisk4" Margin="10" />
+    </StackPanel>
+
+    <!-- Drugi przyk³ad -->
+    <StackPanel>
+        <Label x:Name="lblPytanie" Content="Jak¹ porê roku lubisz najbardziej?"/>
+        <RadioButton x:Name="radioBtn1" Content="Wiosna"/>
+        <RadioButton x:Name="radioBtn2" Content="Lato"/>
+        <RadioButton x:Name="radioBtn3" Content="Jesieñ"/>
+        <RadioButton x:Name="radioBtn4" Content="Zima"/>    
+    </StackPanel>
+
+===========================================================================
+4.3 WrapPanel
+===========================================================================
+
+    <WrapPanel>
+        <Button Content="Przycisk1" Margin="10"/>
+        <Button Content="Przycisk2" Margin="10"/>
+        <Button Content="Przycisk3" Margin="10"/>
+        <Button Content="Przycisk4" Margin="10"/>
+    </WrapPanel>
+
+===========================================================================
+4.4 DockPanel
+===========================================================================
+
+    <DockPanel LastChildFill="False">
+        <Button Content="Domyslny" Margin="2"/>
+        <Button Content="Góra1" Margin="2" DockPanel.Dock="Top"/>
+        <Button Content="Góra2" Margin="2" DockPanel.Dock="Top"/>
+        <Button Content="Dó³" Margin="2" DockPanel.Dock="Bottom"/>
+        <Button Content="Prawy" Margin="2" DockPanel.Dock="Right"/>
+        <Button Content="Ostatni" Margin="2"/> 
+    </DockPanel>
+
+===========================================================================
+4.5 Grid
+===========================================================================
+
+    <!-- Pierwszy przyk³ad -->
+    <Grid>
+        <!-- Definicja Wierszy i kolumn-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Definicja elementów panelu-->
+        <Button Content="Przycisk 111" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <Button Content="Przycisk 2" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <Button Content="Przycisk 3" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <Button Content="Przycisk 4" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <Button Content="Przycisk 5" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <Button Content="Przycisk 6" Grid.Row="2" Grid.Column="1" Margin="5"/>
+    </Grid>
+
+    <!-- Drugi przyk³ad -->
+    <Grid>
+        <!-- Definicja Wierszy i kolumn-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Definicja elementów panelu-->
+        <Button Content="Przycisk 1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Margin="5"/>
+        <Button Content="Przycisk 2" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <Button Content="Przycisk 3" Grid.Row="0" Grid.Column="2" Margin="5"/>
+        <Button Content="Przycisk 4" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <Button Content="Przycisk 5" Grid.Row="1" Grid.Column="2" Margin="5"/>
+        <Button Content="Przycisk 6" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" Margin="5"/>
+    </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+

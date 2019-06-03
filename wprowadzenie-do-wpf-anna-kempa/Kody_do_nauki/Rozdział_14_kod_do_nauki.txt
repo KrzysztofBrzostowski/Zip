@@ -1,0 +1,104 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 14. Trochê teorii na temat WPF
+***************************************************************************
+
+===========================================================================
+14.2 Kontrolki
+===========================================================================
+
+Kontrolki z zawartoœci¹ wpisywan¹ do w³aœciwoœci Content
+--------------------------------------------------------------------------
+
+Przyk³ady definicji przycisków:
+
+<Button>
+    <Button.Content>
+        <TextBlock Text="Zapisz" Background="White"/>
+    </Button.Content>
+</Button>
+
+<Button MaxHeight="50" MaxWidth="150">
+    <Button.Content>
+        <StackPanel Orientation="Horizontal">
+            <Image Source="Rysunki/glosnik.png" MaxHeight="20" MaxWidth="20"/>
+            <TextBlock Text="Play" Margin="5"/>
+        </StackPanel>
+    </Button.Content>
+</Button>
+
+Przyk³ad definicji kontrolki kontrolki GroupBox :
+
+<GroupBox Header="Opcje zapisywania:" Margin="10">
+    <StackPanel>
+        <CheckBox>W³¹cz autozapisywanie</CheckBox>
+        <CheckBox>Sprawdzaj przed zapisem</CheckBox>
+        <CheckBox>Zapisuj tylko bie¿¹ce zadanie</CheckBox>
+    </StackPanel>
+</GroupBox>
+
+Przyk³ad definicji kontrolki ScrollViewer:
+
+<ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <StackPanel>
+         <TextBlock Text="D³ugi tekst pozwalaj¹cy przetestowaæ w³aœciwoœæ HorizontalScrollBarVisibility" Margin="10"/>
+         <TextBlock Text="D³ugi tekst pozwalaj¹cy przetestowaæ w³aœciwoœæ HorizontalScrollBarVisibility" Margin="10"/>     
+    </StackPanel>
+</ScrollViewer>
+
+Kontrolki z zawartoœci¹ Items
+--------------------------------------------------------------------------
+
+Przyk³ad definicji kontrolki StatusBar:
+
+<DockPanel>
+    <StatusBar DockPanel.Dock="Bottom">
+        <StatusBarItem>
+            <Label Content="£aduje ustawienia..."/>
+        </StatusBarItem>
+        <Separator/>
+        <ProgressBar Width="90" Height="20" Value="51" />
+        <Separator/>
+        <StatusBarItem>
+            <Label Content="51%"/>
+        </StatusBarItem>
+        <Separator/>
+        <StatusBarItem>
+            <Label Content="PL"/>
+        </StatusBarItem>
+    </StatusBar>
+    <WrapPanel>
+        <Label Content="Wgraj plik z ustawieniami"/>
+        <Button Content="Pobierz" Margin="10,0"/>
+    </WrapPanel>
+</DockPanel> 
+
+Przyk³ad definicji kontrolki RichTextBox
+
+<RichTextBox Margin="10">
+    <FlowDocument>
+        <Paragraph FontSize="20">Opis produktu</Paragraph>
+        <Paragraph FontStyle="Italic" FontSize="16" 
+                   Foreground="Blue">D³ugopis ¿elowy niebieski z wymiennym wk³adem</Paragraph>
+    </FlowDocument>
+</RichTextBox>
+
+Pozosta³e kontrolki
+--------------------------------------------------------------------------
+
+Przyk³ad definicji kontrolki PasswordBox: <PasswordBox MaxLength="20" PasswordChar="*"/>
+
+Przyk³ad definicji kontrolki Calendar: <Calendar Margin="10" />
+
+Przyk³ad definicji kontrolki DatePicker: <DatePicker HorizontalAlignment="Left" MaxWidth="140"/>
+
+
+
+
+
+
+
+
+

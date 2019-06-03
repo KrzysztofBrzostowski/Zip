@@ -1,0 +1,34 @@
+﻿<Window x:Class="R12_Walidacja_IDataErrorInfo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:R12_Walidacja_IDataErrorInfo"
+        mc:Ignorable="d"
+        Title="Walidacja danych (wersja 4)" Height="100" Width="450" Language="pl-PL">
+    <Window.DataContext>
+        <local:Towar Nazwa="ołówek" Cena="21"/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <AdornedElementPlaceholder/>
+                            <TextBlock Text="{Binding CurrentItem.ErrorContent}" Foreground="Red"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <WrapPanel>
+        <Label Content="Nazwa:"/>
+        <TextBox Text="{Binding Nazwa, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+        <Label Content="Cena:"/>
+        <TextBox Text="{Binding Cena, UpdateSourceTrigger=PropertyChanged, StringFormat={}{0:F2}, ValidatesOnDataErrors=True}"/>
+    </WrapPanel>
+</Window>

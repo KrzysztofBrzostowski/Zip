@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\bin\Debug\R8_Przegladarka.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\bin\Debug\R8_Przegladarka.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\bin\Debug\R8_Przegladarka.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R8_Przegladarka\R8_Przegladarka\obj\Debug\R8_Przegladarka.pdb

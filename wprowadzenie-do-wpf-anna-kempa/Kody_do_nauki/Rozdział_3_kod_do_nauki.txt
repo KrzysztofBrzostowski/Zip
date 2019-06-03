@@ -1,0 +1,65 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 3. Podstawowe kontrolki
+***************************************************************************
+
+===========================================================================
+3.1 Kontrolki Label, TextBox, Button — aplikacja Kwadrat
+===========================================================================
+
+// Kod metody metody obs³uguj¹cej zdarzenie zmiany tekstu w polu tekstowym
+        private void txtBok_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double bok;  // wartoœæ tej zmiennej bêdzie ustalona w metodzie TryParse (argument out)
+            if (double.TryParse(txtBok.Text, out bok) && bok >= 0)
+            {
+                txtPole.Text = Math.Pow(bok, 2.0).ToString();
+                txtObwod.Text = (bok * 4).ToString();
+                lblKomunikat.Content = String.Empty;
+            }
+            else
+            {
+                lblKomunikat.Content = "Wpisz liczbê dodatni¹";
+            }
+        }
+
+// Kod metody metody obs³uguj¹cej zdarzenie Click (przycisk Wyczyœæ)
+        private void btnWyczysc_Click(object sender, RoutedEventArgs e)
+        {
+            txtBok.Text = String.Empty;
+            txtPole.Text = String.Empty;
+            txtObwod.Text = String.Empty;
+            lblKomunikat.Content = "Wpisz wymiar boku";
+        }
+
+===========================================================================
+3.2 Kontrolki ComboBox i CheckBox — aplikacja Rysowanie kwadratu
+===========================================================================
+
+// Tworzenie listy rozwijanej (ComboBox) dla kolorów
+<ComboBox x:Name="cmbKolory" SelectedIndex="0" HorizontalAlignment="Left"
+ Height="30" Margin="123,180,0,0" VerticalAlignment="Top" Width="145">
+    <ComboBoxItem Content="Black"></ComboBoxItem>
+    <ComboBoxItem Content="Red"></ComboBoxItem>
+    <ComboBoxItem Content="Yellow"></ComboBoxItem>
+    <ComboBoxItem Content="Green"></ComboBoxItem>
+    <ComboBoxItem Content="Blue"></ComboBoxItem>
+</ComboBox>
+
+// Obs³uga zdarzenia klikniêcia przycisku Rysuj
+        private void txtBok_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            double bok;  // wartoœæ tej zmiennej bêdzie ustalona w metodzie TryParse (argument out)
+            if (double.TryParse(txtBok.Text, out bok) && bok >= 0)
+            {
+                txtPole.Text = Math.Pow(bok, 2.0).ToString();
+                txtObwod.Text = (bok * 4).ToString();
+                lblKomunikat.Content = String.Empty;
+            }
+            else
+            {
+                lblKomunikat.Content = "Wpisz liczbê dodatni¹";
+            }
+        }

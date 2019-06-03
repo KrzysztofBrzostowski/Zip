@@ -1,0 +1,337 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 11. Szablony danych, konwertery i szablony kontrolek
+***************************************************************************
+
+===========================================================================
+11.1 Drzewo logiczne i drzewo prezentacji
+===========================================================================
+
+<Window x:Class="R11_VisualTree.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Przyk³ad drzewa wizualnego" Height="200" Width="200">
+    <StackPanel>
+        <TextBlock Text="Wpisz wartoœæ" Foreground="Gray" Margin="10"/>
+        <TextBox Text="100" Margin="10"/>
+        <Button Content="Przycisk" Margin="10"/>
+    </StackPanel>
+</Window>
+
+
+Kod dla nowego przycisku:
+
+<Button Content="Widmo">
+    <Button.Template>
+        <ControlTemplate></ControlTemplate>
+    </Button.Template>
+</Button>
+
+===========================================================================
+11.2 Szablony danych — aplikacja Lista zadañ
+===========================================================================
+
+Kod C#
+
+// Plik Zadanie.cs:
+class Zadanie
+{
+    public string Nazwa { get; set; }
+    public string Opis { get; set; }
+    public int Priorytet { get; set; }
+}
+
+// W pliku z definicj¹ klasy KolekcjaZadan nale¿y dodaæ dytektywê using:
+using System.Collections.ObjectModel;
+
+// Definicja klasy KolekcjaZadan:
+class KolekcjaZadan : ObservableCollection<Zadanie>
+{
+    public KolekcjaZadan()
+    {
+        Add(new Zadanie
+        {
+            Nazwa = "Zamówienie",
+            Opis = "Zamówiæ 100 d³ugopisów ¿elowych",
+            Priorytet = 1
+        });
+        Add(new Zadanie
+        {
+            Nazwa = "Zaproszenie",
+            Opis = "Zaprosiæ kontrahentów na pokaz nowego produktu",
+            Priorytet = 2
+        });
+        Add(new Zadanie
+        {
+            Nazwa = "Sprz¹tanie",
+            Opis = "Posprz¹taæ magazyn",
+            Priorytet = 3
+        });
+    }
+}
+
+Kod XAML:
+
+Wstêpna wersja (z ListBox bez szablonu):
+
+<StackPanel>
+    <StackPanel.Resources>
+        <local:KolekcjaZadan x:Key="listaZadanDoWykonania"/>
+    </StackPanel.Resources>
+    <TextBlock FontSize="14" Text="Lista zadañ:" Margin="10,0"/>
+    <ListBox Margin="10" ItemsSource="{Binding Source={StaticResource listaZadanDoWykonania}}"/>
+</StackPanel>
+
+ListBox z definicj¹ szablonu danych:
+
+<ListBox Margin="10" ItemsSource="{Binding Source={StaticResource listaZadanDoWykonania}}">
+    <ListBox.ItemTemplate>
+        <DataTemplate>
+            <StackPanel>
+                <TextBlock Text="{Binding Path=Nazwa}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Path=Opis}"/>
+                <TextBlock Text="{Binding Path=Priorytet}"/>
+            </StackPanel>
+        </DataTemplate>
+    </ListBox.ItemTemplate>
+</ListBox>
+
+Wersja z definicj¹ szablonu danych w zasobach panelu StackPanel:
+
+<StackPanel>
+    <StackPanel.Resources>
+        <local:KolekcjaZadan x:Key="listaZadanDoWykonania"/>
+        <DataTemplate x:Key="szablonZadan">
+            <StackPanel>
+                <TextBlock Text="{Binding Path=Nazwa}" FontWeight="Bold" />
+                <TextBlock Text="{Binding Path=Opis}"/>
+                <TextBlock Text="{Binding Path=Priorytet}"/>
+            </StackPanel>
+        </DataTemplate>
+    </StackPanel.Resources>
+    <TextBlock FontSize="14" Text="Lista zadañ:" Margin="10,0"/>
+    <ListBox Margin="10" ItemsSource="{Binding Source={StaticResource listaZadanDoWykonania}}" ItemTemplate="{StaticResource szablonZadan}"/>
+</StackPanel>
+
+===========================================================================
+11.3 Konwertery wartoœci
+===========================================================================
+
+Kod C#:
+
+// Stwórz w projekcie w nowym pliku klasê ColorPlToColorEnConverter. Dodaj dyrektywy using: 
+
+using System.Windows.Data;   
+using System.Windows.Media;  
+
+// Nastêpnie wpisz kod klasy:
+
+class ColorPlToColorEnConverter: IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        if (targetType != typeof(Brush))
+        {
+            throw new InvalidOperationException("Celem powinien byæ typ Brush");
+        }
+        string kolorPL = value.ToString();    // Kolor w jêzyku polskim jako string
+        Dictionary<string, Brush> kolory = new Dictionary<string, Brush>();
+        kolory.Add("Czarny", Brushes.Black);
+        kolory.Add("Czerwony", Brushes.Red);
+        kolory.Add("¯ó³ty", Brushes.Yellow);
+        kolory.Add("Zielony", Brushes.Green);
+        kolory.Add("Niebieski", Brushes.Blue);
+        if (kolory.ContainsKey(kolorPL))    // Czy dany kolor jest w s³owniku
+            return kolory[kolorPL];         // Zwraca kolor jako Brush
+        else
+            return Brushes.LightGray;
+    }
+    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+Kod XAML:
+
+<Window.Resources>
+    <local:ColorPlToColorEnConverter x:Key="colorPlToColorEnConverter"/>
+</Window.Resources>
+
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto"/>
+        <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <Label Grid.Row ="0" Grid.Column ="0" Content="Kolor" Margin="5"/>
+    <ComboBox x:Name="cmbKolor" Grid.Row ="0" Grid.Column ="1" SelectedIndex="0" HorizontalAlignment="Left" Width="145" Margin="5">
+        <ComboBoxItem Content="Czarny"></ComboBoxItem>
+        <ComboBoxItem Content="Czerwony"></ComboBoxItem>
+        <ComboBoxItem Content="¯ó³ty"></ComboBoxItem>
+        <ComboBoxItem Content="Zielony"></ComboBoxItem>
+        <ComboBoxItem Content="Niebieski"></ComboBoxItem>
+    </ComboBox>
+    <TextBlock Grid.Row ="1" Grid.Column ="0" Grid.ColumnSpan="2" Margin="5" 
+        Text="Testujemy konwerter wartoœci" FontSize="30"
+        Foreground="{Binding Path=SelectedItem.Content, ElementName=cmbKolor, Converter={StaticResource colorPlToColorEnConverter}}"/>
+</Grid>
+
+===========================================================================
+11.4 Szablony kontrolek
+===========================================================================
+
+Kod XAML:
+
+Kod definicji szablonu przycisku jako zasób okna:
+
+<Window.Resources>
+    <ControlTemplate x:Key="szablonPrzycisku" TargetType="Button">
+        <Grid>
+            <Ellipse Fill="Lavender" Width="100" Height="50" Stroke="Black"/>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Zapisz" FontSize="16" FontWeight="Bold"/>
+        </Grid>
+    </ControlTemplate>
+</Window.Resources>
+
+W komórce panelu Grid definiujemy przycisk wed³ug szablonu szablonPrzycisku:
+
+<Grid>
+    <Button Template="{StaticResource szablonPrzycisku}" Click="Button_Click"/>
+</Grid>
+
+Kod C#:
+
+// W klasie MainWindow dopisz obs³ugê zdarzenia klikniêcia przycisku:
+
+private void Button_Click(object sender, RoutedEventArgs e)
+{
+    MessageBox.Show("Zapisano dane!");
+}
+
+Kod XAML (nowe wersje):
+
+Wersja z ContentPresenter:
+
+<Window.Resources>
+    <ControlTemplate x:Key="szablonPrzycisku" TargetType="Button">
+        <Grid>
+            <Ellipse Fill="Lavender" Width="100" Height="50" Stroke="Black"/>
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+    </ControlTemplate>
+</Window.Resources>
+<Grid>
+    <Button Content="ZatwierdŸ" FontSize="16" FontWeight="Bold" Template="{StaticResource szablonPrzycisku}" Click="Button_Click"/>
+</Grid>
+
+Wersja z szablonem umieszczonym w stylu:
+
+<Window.Resources>
+    <Style x:Key="stylPrzycisku" TargetType="{x:Type Button}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Ellipse Fill="Lavender" Width="100" Height="50" Stroke="Black"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+</Window.Resources>
+
+Definicja przycisku:
+
+<Grid>
+    <Button Content="ZatwierdŸ" Style="{StaticResource stylPrzycisku}" Click="Button_Click"/>
+</Grid>
+
+===========================================================================
+11.6 Wskazówki do zadañ
+===========================================================================
+
+
+Wskazówki do zadania 11.1
+--------------------------------------------------------------------------
+
+Kod wyzwalacza:
+
+<DataTemplate.Triggers>
+    <DataTrigger Binding="{Binding Path=Priorytet}" Value="1">
+        <Setter Property="TextBlock.Foreground" Value="Red"/>
+    </DataTrigger>
+</DataTemplate.Triggers>
+
+
+Wskazówki do zadania 11.2
+-------------------------------------------------------------------------
+
+// Dodaj dyrektywy using:
+using System.Windows.Data;   
+using System.Windows.Media;  
+
+// Kod konwertera mo¿e mieæ nastêpuj¹c¹ postaæ:
+
+class PriorityToForegroundConverter: IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        if (targetType != typeof(Brush))
+        {
+            throw new InvalidOperationException("Celem powinien byæ typ Brush");
+        }
+        int priorytet = int.Parse(value.ToString());
+        return (priorytet == 1 ? Brushes.Red : Brushes.Black);               
+    }
+    public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+    {
+        throw new NotImplementedException();
+    }
+}
+
+W kodzie XAML nale¿y dodaæ konwerter do definicji zasobu, na przyk³ad:
+
+<local:PriorityToForegroundConverter x:Key="priorytetKonwerter"/>
+
+W definicji TextBlock dla nazwy zadania nale¿y dokonaæ wi¹zania z w³aœciwoœci¹ Priorytet oraz przypisaæ konwerter: 
+
+<TextBlock Text="{Binding Path=Nazwa}" FontWeight="Bold" Foreground="{Binding Priorytet, Converter={StaticResource priorytetKonwerter}}" />
+
+Wskazówki do zadania 11.3
+--------------------------------------------------------------------------
+
+<Window.Resources>
+    <ControlTemplate x:Key="szablonPrzycisku" TargetType="Button">
+        <Grid>
+            <Ellipse x:Name="elipsa" Fill="Lavender" Width="100" Height="50" Stroke="Black"/>
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Fill" Value="LightBlue" TargetName="elipsa"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Fill" Value="Red" TargetName="elipsa"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</Window.Resources>
+
+Definicja przycisku bez zmian, czyli:
+
+<Button Content="ZatwierdŸ" FontSize="16" FontWeight="Bold" Template="{StaticResource szablonPrzycisku}" Click="Button_Click"/> 
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\bin\Debug\R10_Zasoby.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\bin\Debug\R10_Zasoby.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\bin\Debug\R10_Zasoby.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_Zasoby\R10_Zasoby\obj\Debug\R10_Zasoby.pdb

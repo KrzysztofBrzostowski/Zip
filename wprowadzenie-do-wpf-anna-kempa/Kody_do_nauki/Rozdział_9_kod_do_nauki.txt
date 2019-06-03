@@ -1,0 +1,171 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 9. Zak³adki (TabControl) — aplikacja Odtwarzacz audio
+***************************************************************************
+
+===========================================================================
+9.1 Kod XAML
+===========================================================================
+
+<Grid>
+    <TabControl>
+        <TabItem Header="Audio">
+            <StackPanel Margin="10">
+                <WrapPanel>
+                    <Button x:Name="btnWybierz" Click="btnWybierz_Click" Content="Wybierz utwór" Padding="5" Margin="20,10" />
+                    <TextBlock x:Name ="txtUtwor" Text="" MinWidth="150" Margin="10" />
+                    <TextBlock x:Name="txtCzas" Text="" Foreground="Blue" Margin="10"/>
+                </WrapPanel>
+                <Grid>
+                    <ProgressBar x:Name="pbGra" Margin="20" Height="20"/>
+                    <TextBlock Text="{Binding ElementName=pbGra, Path=Value, StringFormat={}{0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button x:Name="btnPlay" Click="btnPlay_Click" Content="Play" Margin="10" Padding="5" Width="50" ToolTip="Odtwórz" IsEnabled="False" />
+                    <Button x:Name="btnPause" Click="btnPause_Click" Content="Pause" Margin="10" Padding="5" Width="50" ToolTip="Przerwij" IsEnabled="False"/>
+                    <Button x:Name="btnStop" Click="btnStop_Click" Content="Stop" Margin="10" Padding="5" Width="50" ToolTip="Zakoñcz" IsEnabled="False"/>
+                </WrapPanel>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Ustawienia">
+            <StackPanel>
+                <Label x:Name="lblKolor" Content="Wybierz kolor"/>
+                <RadioButton Content="Niebieski" Checked="radio_Checked" IsChecked="True"/>
+                <RadioButton Content="Zielony" Checked="radio_Checked"/>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Grid>
+
+===========================================================================
+9.2 Code-behind
+===========================================================================
+
+// W pliku MainWindow.xaml.cs nale¿y dopisaæ dyrektywy using dla dwóch przestrzeni nazw:
+using Microsoft.Win32;
+using System.Windows.Threading;
+
+// Kod klasy MainWindow: 
+public partial class MainWindow : Window
+{
+    private MediaPlayer mediaPlayer = new MediaPlayer();
+    private DispatcherTimer timer;
+
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        timer = new DispatcherTimer();
+        timer.Interval = TimeSpan.FromMilliseconds(500);
+        timer.Tick += new EventHandler(timerTick);
+    }
+    void timerTick(object sender, EventArgs e)
+    {
+        if (mediaPlayer.Source != null && mediaPlayer.NaturalDuration.HasTimeSpan)
+        {
+            txtCzas.Text = mediaPlayer.Position.ToString(@"mm\:ss");
+            // Ustawienia dla ProgressBar
+            TimeSpan ts = mediaPlayer.NaturalDuration.TimeSpan;
+            pbGra.Maximum = 100;
+            pbGra.Value = ((double) mediaPlayer.Position.TotalMilliseconds / ts.TotalMilliseconds)*100;   
+        }
+    }
+    private void btnWybierz_Click(object sender, RoutedEventArgs e)
+    {
+        OpenFileDialog dialog = new OpenFileDialog();
+        dialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
+        if (dialog.ShowDialog() == true)
+        {
+            mediaPlayer.Open(new Uri(dialog.FileName));
+            txtUtwor.Text = String.Format("Utwór: {0}", dialog.FileName);
+            btnPlay.IsEnabled = true;
+            btnPause.IsEnabled = true;
+            btnStop.IsEnabled = true;           
+            timer.Start();
+        }
+    }
+
+    private void btnPlay_Click(object sender, RoutedEventArgs e)
+    {
+        mediaPlayer.Play();
+    }
+    private void btnPause_Click(object sender, RoutedEventArgs e)
+    {
+        mediaPlayer.Pause();
+    }
+    private void btnStop_Click(object sender, RoutedEventArgs e)
+    {
+        mediaPlayer.Stop();
+    }
+    private void radio_Checked(object sender, RoutedEventArgs e)
+    {
+        var radio = sender as RadioButton;
+        string kolor = (radio.Content.ToString() == "Niebieski") ? "LightSkyBlue" : "LightGreen";
+        pbGra.Foreground = (SolidColorBrush)new BrushConverter().ConvertFromString(kolor);
+    }
+}
+
+===========================================================================
+9.4 Wskazówki do zadañ
+===========================================================================
+
+Wskazówki do zadania 9.1
+---------------------------------------------------------------------------
+W kodzie XAML pod definicj¹ kontrolki ProgressBar wpisz kod dla suwaka:
+<Slider x:Name="slGra" Thumb.DragStarted="slGra_DragStarted" Thumb.DragCompleted="slGra_DragCompleted" Margin="20"/>
+
+// W code-behind dodaj dyrektywê using dla przestrzeni nazw:
+using System.Windows.Controls.Primitives;
+
+// W klasie MainWindow zdefiniuj nowe pole prywatne:
+
+private bool czySuwakJestPrzesuwany = false;
+
+// Podmieñ zawartoœæ metody timerTick na nastêpuj¹c¹:
+void timerTick(object sender, EventArgs e)
+{
+    if (mediaPlayer.Source != null && mediaPlayer.NaturalDuration.HasTimeSpan && !czySuwakJestPrzesuwany)
+    {
+        txtCzas.Text = mediaPlayer.Position.ToString(@"mm\:ss");
+        // Ustawienia dla ProgressBar
+        TimeSpan ts = mediaPlayer.NaturalDuration.TimeSpan;
+        pbGra.Maximum = 100;
+        pbGra.Value = ((double)mediaPlayer.Position.TotalMilliseconds / ts.TotalMilliseconds) * 100;
+        // Ustawienia dla Slider
+        slGra.Maximum = mediaPlayer.NaturalDuration.TimeSpan.TotalMilliseconds;
+        slGra.Value = mediaPlayer.Position.TotalMilliseconds;
+    }
+}
+
+// Metody obs³uguj¹ce dwa zdarzenia dla kontrolki Slider — rozpoczêcia przesuwania suwaka (DragStarted) i zakoñczenia przesuwania suwaka (DragCompleted):
+
+private void slGra_DragStarted(object sender, DragStartedEventArgs e)
+{
+    czySuwakJestPrzesuwany = true;
+}
+private void slGra_DragCompleted(object sender, DragCompletedEventArgs e)
+{
+    czySuwakJestPrzesuwany = false;
+    mediaPlayer.Position = TimeSpan.FromMilliseconds(slGra.Value);
+}
+
+Wskazówki do zadania 9.2
+---------------------------------------------------------------------------
+W kodzie XAML dla obu zak³adek nale¿y zdefiniowaæ nag³ówki w osobnych znacznikach. Przyk³adowa definicja jednego z nag³ówków:
+
+<TabItem.Header>
+    <StackPanel Orientation="Horizontal">
+        <Image Source="Rysunki/glosnik.png" MaxHeight="16" MaxWidth="16" />
+        <TextBlock Text="Audio" Foreground="Brown" Padding="5,0" />
+    </StackPanel>
+</TabItem.Header>
+
+
+
+
+
+
+
+

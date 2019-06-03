@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\bin\Debug\R3_Kwadrat.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\bin\Debug\R3_Kwadrat.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\bin\Debug\R3_Kwadrat.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R3_Kwadrat\R3_Kwadrat\obj\Debug\R3_Kwadrat.pdb

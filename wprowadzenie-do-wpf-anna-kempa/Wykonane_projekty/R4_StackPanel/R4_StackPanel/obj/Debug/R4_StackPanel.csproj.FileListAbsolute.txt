@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\bin\Debug\R4_StackPanel.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\bin\Debug\R4_StackPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\bin\Debug\R4_StackPanel.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_StackPanel\R4_StackPanel\obj\Debug\R4_StackPanel.pdb

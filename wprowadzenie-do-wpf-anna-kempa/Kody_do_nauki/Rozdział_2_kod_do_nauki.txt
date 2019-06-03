@@ -1,0 +1,40 @@
+Plik zawiera kody do nauki. Objaœnienia na temat, gdzie nale¿y umieœciæ poszczególne 
+fragmenty kodu zawarte s¹ w podrêczniku Kempa A. "Wprowadzenie do WPF. 
+Tworzenie aplikacji WPF przy u¿yciu XAML i C#", Helion, Gliwice 2017
+***************************************************************************
+Rozdzia³ 2. Pierwsza aplikacja - Przywitanie
+***************************************************************************
+
+===========================================================================
+2.2 Code-behind, czyli jak ma dzia³aæ
+===========================================================================
+
+// Kod metody obs³uguj¹cej zdarzenie klikniêcia przycisku Start
+private void btnStart_Click(object sender, RoutedEventArgs e)
+{
+    MessageBox.Show("Witaj, œwiecie!");
+}
+
+// Kod metody obs³uguj¹cej zdarzenie najechania mysz¹ przycisk Czas
+private void btnTime_MouseEnter(object sender, MouseEventArgs e)
+{
+    DateTime data = DateTime.Now;           // Odczytanie bie¿¹cej daty
+    btnTime.Content = data.ToString("T");   // Przypisanie ³añcucha znakowego prezentuj¹cego godzinê
+}
+
+// Kod metody obs³uguj¹cej zdarzenie odsuniêcia myszy
+private void btnTime_MouseLeave(object sender, MouseEventArgs e)
+{
+    btnTime.Content = "Czas";
+}
+
+===========================================================================
+2.4 Wskazówki do zadañ
+===========================================================================
+
+Wskazówki do zadania 2.5
+---------------------------------------------------------------------------
+
+var tmpMargin = btnYes.Margin;   // Zapamiêtanie pocz¹tkowego po³o¿enia przycisku Tak
+btnYes.Margin = btnNo.Margin;    // Przycisk Tak przyjmuje po³o¿enie przycisku Nie
+btnNo.Margin = tmpMargin;        // Przycisk Nie przyjmuje pocz¹tkowe po³o¿enie przycisku Tak

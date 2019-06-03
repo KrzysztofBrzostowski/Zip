@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\bin\Debug\R10_WyzwalaczeDanych.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\bin\Debug\R10_WyzwalaczeDanych.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\bin\Debug\R10_WyzwalaczeDanych.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R10_WyzwalaczeDanych\R10_WyzwalaczeDanych\obj\Debug\R10_WyzwalaczeDanych.pdb

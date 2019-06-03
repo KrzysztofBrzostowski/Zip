@@ -1,0 +1,14 @@
+==============================================================================
+Informacje o wersji Visual Studio                              kwiecieñ 2017
+==============================================================================
+Programy przedstawiane w podrêczniku by³y kompilowane i uruchamiane w dwóch 
+wersjach œrodowiska: Visual Studio 2017 Community i Visual Studio 2015 Community.
+
+W folderze Wykonane_projekty zosta³y umieszczone programy wygenerowane w wersji 
+Visual Studio Community 2015. Tak zapisane projekty uruchomi¹ siê prawid³owo 
+zarówno w wersji Visual Studio 2015 jak i Visual Studio 2017.
+
+----------------------
+W bie¿¹cym pliku (Wersja_Visual_Studio.txt) bêd¹ umieszczane informacje 
+dotycz¹ce nowszych wersji œrodowiska, jeœli wprowadzone zmiany dotyczy³yby 
+w istotny sposób zakresu ksi¹¿ki.

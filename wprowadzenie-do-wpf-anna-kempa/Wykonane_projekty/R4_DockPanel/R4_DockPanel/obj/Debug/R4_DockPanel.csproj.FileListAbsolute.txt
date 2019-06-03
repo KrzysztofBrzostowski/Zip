@@ -1,0 +1,14 @@
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\bin\Debug\R4_DockPanel.exe.config
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\bin\Debug\R4_DockPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\bin\Debug\R4_DockPanel.pdb
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.csprojResolveAssemblyReference.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\MainWindow.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\App.g.cs
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel_MarkupCompile.cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel_MarkupCompile.lref
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\MainWindow.baml
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.g.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.Properties.Resources.resources
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.csproj.GenerateResource.Cache
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.exe
+C:\DOKUMENT\_UCZELNIA\_Helion_kurs\_WPF_ksiazka\Projekty_WPF\R4_DockPanel\R4_DockPanel\obj\Debug\R4_DockPanel.pdb
